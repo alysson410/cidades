@@ -4,12 +4,12 @@
 #include <math.h>
 #include "cidades.h"
 
-// Função para ordenar as cidades por posição ao longo da estrada
+// Funcao para ordenar as cidades por posicao ao longo da estrada
 int compare(const void *a, const void *b) {
     return ((Cidade *)a)->Posicao - ((Cidade *)b)->Posicao;
 }
 
-// Função para iniciar a estrada
+// Funcao para iniciar a estrada
 Estrada *getEstrada(const char *nomeArquivo) {
     FILE *file = fopen(nomeArquivo, "r");
     if (!file) return NULL;
@@ -36,14 +36,14 @@ Estrada *getEstrada(const char *nomeArquivo) {
 
     fclose(file);
 
-    // Ordenar as cidades por posição na estrada
+    // Ordenar as cidades por posicao na estrada
     qsort(estrada->C, estrada->N, sizeof(Cidade), compare);
 
     return estrada;
 }
 
 
-// Função para calcular a menor vizinhança
+// Funcao para calcular a menor vizinhanca
 double calcularMenorVizinhanca(const char *nomeArquivo) {
     Estrada *estrada = getEstrada(nomeArquivo);
     if (!estrada) return -1.0; 
@@ -64,7 +64,7 @@ double calcularMenorVizinhanca(const char *nomeArquivo) {
 }
 
 
-// Função para encontrar a cidade com a menor vizinhança
+// Funcao para encontrar a cidade com a menor vizinhanca
 char *cidadeMenorVizinhanca(const char *nomeArquivo) {
     Estrada *estrada = getEstrada(nomeArquivo);
     if (!estrada) return NULL;
